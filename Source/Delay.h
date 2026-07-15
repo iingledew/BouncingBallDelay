@@ -6,7 +6,7 @@ class Delay {
 public:
 	Delay() {
 		//delayBuffers = std::vector<CircularBuffer>(2, CircularBuffer(1000000));   // initializes a vector of 2 buffers, each with 10000 as the constructor parameter
-		delayBuffers = std::vector<CircularBuffer>(2, CircularBuffer(1048576));
+		delayBuffers = std::vector<CircularBuffer>(2, CircularBuffer(1000000));     // 1048576
 	}
 
 	void processSampleFrac(float* inputSample, float lfoShift, int channel);

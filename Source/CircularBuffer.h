@@ -1,13 +1,18 @@
 #pragma once
 
 #include <vector>
+#include <cmath>
+
+#define ln2 0.69314718056
 
 class CircularBuffer {
 public:
 
 	CircularBuffer(int lengthSamples) {
-		bufferLength = lengthSamples;
-		buffer = std::vector<float>(bufferLength, 0.0f);  // 0.0f was initially 0
+		// creates a vector where the length is the next power of two above the provided buffer length
+		float exponent = std::ceil(std::log(lengthSamples) / ln2);
+		bufferLength = std::pow(2, exponent);
+		buffer = std::vector<float>(bufferLength, 0.0f);
 	}
 
 	int getReadPos(int delaySamples);

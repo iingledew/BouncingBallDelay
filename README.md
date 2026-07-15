@@ -1,1 +1,1 @@
-This is my first audio plugin, be nice :)
+This is my first audio plugin, be nice :) - Stoneboom

@@ -337,7 +337,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout BouncingBallAudioProcessor::
     auto speed = std::make_unique<juce::AudioParameterFloat>(
         "speed", "Speed", 0.0f, 100.0f, 10.0f);
     auto angle = std::make_unique<juce::AudioParameterFloat>(
-        "angle", "Angle", -90.0f, 90.0f, 0.0f);
+        "angle", "Angle", -85.0f, 85.0f, 0.0f);
     auto height = std::make_unique<juce::AudioParameterFloat>(
         "height", "Height", 0.0f, 100.0f, 0.0f);
     auto damping = std::make_unique<juce::AudioParameterFloat>(

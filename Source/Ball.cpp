@@ -12,11 +12,15 @@
 #include <cmath>
 #include <algorithm>
 
+namespace {
+    constexpr int MAX_DIMENSIONS = 2;
+}
+
 void Ball::generateDelays(double sampleRate, float xInit[2], float vInit[2], float dampingInit[2], float gInit)
 {
     active = true;
     delaysNumber = 0;
-    for (int dimension = 0; dimension < 2; dimension++) {
+    for (int dimension = 0; dimension < MAX_DIMENSIONS; dimension++) {
         x[dimension] = xInit[dimension];
         v[dimension] = vInit[dimension];
         damping[dimension] = dampingInit[dimension];
@@ -28,7 +32,7 @@ void Ball::generateDelays(double sampleRate, float xInit[2], float vInit[2], flo
 
     while (active) {
 
-        for (int dimension = 0; dimension < 2; dimension++) {
+        for (int dimension = 0; dimension < MAX_DIMENSIONS; dimension++) {
             v[dimension] += a[dimension] * dt;
             x[dimension] += v[dimension] * dt;
 
@@ -68,7 +72,7 @@ void Ball::generateDelaysMath(double sampleRate, float speed, float angle, float
     float dampingInit[2] = { _damping, _damping };
 
     // reset position and velocities
-    for (int dimension = 0; dimension < 2; dimension++) {
+    for (int dimension = 0; dimension < MAX_DIMENSIONS; dimension++) {
         x[dimension] = xInit[dimension];
         v[dimension] = vInit[dimension];
         damping[dimension] = dampingInit[dimension];
@@ -132,7 +136,7 @@ void Ball::generateDelaysMath(double sampleRate, float speed, float angle, float
         int closestDimension = (timeToWall[1] < timeToWall[0]);   // find dimension with shortest time
         float dt = timeToWall[closestDimension];
         
-        for (int dimension = 0; dimension < 2; dimension++) {     // calculate new positions and velocities
+        for (int dimension = 0; dimension < MAX_DIMENSIONS; dimension++) {     // calculate new positions and velocities
             x[dimension] += (v[dimension] * dt) + (0.5 * a[dimension] * std::pow(dt, 2));
             v[dimension] += a[dimension] * dt;
         }

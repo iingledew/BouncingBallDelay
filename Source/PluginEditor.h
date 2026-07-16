@@ -17,7 +17,7 @@
 /**
 */
 class BouncingBallAudioProcessorEditor  : public juce::AudioProcessorEditor
-                                          //private juce::MouseListener
+
 {
 public:
     BouncingBallAudioProcessorEditor (BouncingBallAudioProcessor&);

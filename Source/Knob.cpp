@@ -10,7 +10,7 @@
 
 #include "Knob.h"
 
-Knob::Knob(juce::AudioProcessorValueTreeState& apvts, juce::String paramID, juce::String suffix, KnobImgStrip knobImgStrip, bool showValue, float mouseSensMultiplier) :  sliderAttachment(apvts, paramID, sliderComponent), 
+Knob::Knob(juce::AudioProcessorValueTreeState& apvts, juce::String paramID, juce::String suffix, KnobImgStrip knobImgStrip, bool showValue, float mouseSensMultiplier) :  sliderAttachment(apvts, paramID, sliderComponent),
                                                                                                                                                                           valueComponent("value", "0"),   
                                                                                                                                                                           suffix(suffix),
                                                                                                                                                                           name(apvts.getParameter(paramID)->name),
@@ -24,7 +24,8 @@ Knob::Knob(juce::AudioProcessorValueTreeState& apvts, juce::String paramID, juce
     valueComponent.setJustificationType(juce::Justification::centred);
     valueComponent.setColour(juce::Label::textColourId, juce::Colours::black);
     valueComponent.setAlpha(0.5);
-    valueComponent.setFont(juce::Font::Font(10.0f, juce::Font::plain));
+    //valueComponent.setFont(juce::Font::Font(10.0f, juce::Font::plain));        deprecated?
+    valueComponent.setFont(juce::Font(juce::FontOptions (10.0f, juce::Font::plain)));
     valueComponent.setText(static_cast<juce::String>(int(sliderComponent.getValue()))+suffix, juce::NotificationType::dontSendNotification);
 
     sliderComponent.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);

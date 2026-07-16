@@ -14,8 +14,7 @@
 #include "NewLookAndFeel.h"
 
 class Knob final : public juce::Component, 
-                   private juce::Slider::Listener,
-                   private juce::MouseListener
+                   private juce::Slider::Listener
 {
 public:
     Knob(juce::AudioProcessorValueTreeState& apvts, juce::String paramID, juce::String suffix, KnobImgStrip knobImgStrip, bool showValue = true, float mouseSensMultiplier = 1);   // originally had float* parameter as an argument
@@ -40,3 +39,5 @@ private:
     int imgWidth;
     int imgHeight;
 };
+
+//private juce::MouseListener
